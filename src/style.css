@@ -1,0 +1,155 @@
+/* Общие стили */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #57c1eb, #246fa8);
+  background-size: 400% 400%;
+  animation: gradientShift 6s infinite ease-in-out;
+}
+
+.todo-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px 30px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Заголовок */
+.todo-title {
+  color: #246fa8;
+  font-size: 2.5em;
+  margin-bottom: 1em;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Контейнер ввода */
+.todo-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#todo-input {
+  width: 75%;
+  padding: 10px;
+  font-size: 1.1em;
+  border: 2px solid #246fa8; /* Рамка синего цвета */
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#todo-input:focus {
+  border-color: #57c1eb; /* Светло-синий цвет при фокусе */
+}
+
+#add-btn {
+  background: #246fa8;
+  color: white;
+  border: 2px solid #246fa8; /* Рамка кнопки в цвет темы */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#add-btn:hover {
+  background: #57c1eb;
+  border-color: #57c1eb; /* Цвет рамки при наведении */
+  transform: scale(1.1);
+}
+
+/* Список задач */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-list li {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: popUp 0.5s ease-in-out;
+}
+
+.todo-list li.completed {
+  text-decoration: line-through;
+  color: #aaa;
+  background: #e8f5fc;
+}
+
+/* Кнопки задач */
+.task-btn {
+  border: 2px solid transparent ; /* Начальная прозрачная рамка */
+  background: transparent;
+  font-size: 1.2em;
+  margin-left: 10px;
+  cursor: pointer;
+  padding: 5px 10px; /* Добавлена внутренняя отступность */
+  border-radius: 5px; /* Рамка с закруглениями */
+  transition: color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.task-btn.complete {
+  color: #57c1eb;
+  border-color: #57c1eb; /* Рамка для кнопки "завершить" */
+}
+
+.task-btn.delete {
+  color: #ff6b6b;
+  border-color: #ff6b6b; /* Рамка для кнопки "удалить" */
+}
+
+.task-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Анимации */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes popUp {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Стиль для заглушенной кнопки */
+button:disabled, .btn-disabled {
+  background-color: #d1d1d1;  /* Серый фон */
+  border: 2px solid #b0b0b0;  /* Серый цвет рамки */
+  color: #a0a0a0;             /* Серая текстовая окраска */
+  cursor: not-allowed;        /* Курсор в виде "запрещено" */
+  opacity: 0.6;                /* Прозрачность для эффекта неактивности */
+  pointer-events: none;        /* Запрещает клики на кнопку */
+  transition: all 0.3s ease;   /* Плавный переход при изменении состояния */
+}
+
+/* Опциональные стили для кнопок при наведении */
+button:disabled:hover, .btn-disabled:hover {
+  background-color: #d1d1d1;  /* Серый фон при наведении */
+  border-color: #b0b0b0;      /* Серый цвет рамки */
+  color: #a0a0a0;             /* Серая текстовая окраска */
+
+  transform: none;            /* Отменяет увеличение */
+}
